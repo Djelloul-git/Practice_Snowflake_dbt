@@ -131,7 +131,7 @@ telecom_dbt/
 
 ## 📈 Lineage Graph
 
-![Lineage Graph](docs/lineage_graph.png)
+[![Lineage Graph](docs/lineage_graph.png)](https://github.com/Djelloul-git/Practice_Snowflake_dbt/blob/main/Lineage%20Graph.JPG)
 
 > De gauche à droite : Sources RAW → Staging → Intermediate → Marts
 
