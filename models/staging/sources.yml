@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: data_raw                  # Nom de la source utilisé dans la fonction source()
+    database: TELECOM_DB_DEV       # Nom de la base de données Snowflake
+    schema: DATA_RAW                     # Nom du schéma contenant les données brutes
+    tables:
+
+      - name: CUSTOMERS               # Nom de la table brute dans Snowflake
+        description: "Table contenant les données brutes des clients."
+        config:
+         freshness:
+          warn_after: {count: 365, period: day}
+          error_after: {count: 730, period: day}
+          loaded_at_field: "TO_TIMESTAMP(UPDATED_AT)"        
+
+
+      - name: incidents
+        description: "Tables des incidents avec les clients impactés"     
+
+
+      - name: invoices
+        description: "Factures et status de paiement des clients"
+        config:
+         freshness:
+           warn_after: {count: 730, period: day}
+           error_after: {count: 1100, period: day}
+           loaded_at_field: "TO_TIMESTAMP(CREATED_AT)"
+      
+      - name: offer_changes
+        description: "Suivi offre des clients"
+      
+      - name: offers_seed
+        description: "Les offres disponibles"
+
+
+      - name: usage
+        description: "Idenfification des usages"

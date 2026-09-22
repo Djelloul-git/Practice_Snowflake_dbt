@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Table clients nettoyée"
+    columns:
+       - name: CUSTOMER_ID
+         tests:
+           - unique
+           - not_null
+       - name: email
+         tests:
+           - not_null
+       - name: offer_code
+         tests:
+           - not_null
+       - name: SEGMENT
+         data_tests:
+           - accepted_values:
+               values: ['low','mid','high','business']
+
+  - name: stg_incidents
+    description: "Table des incidents"
+    columns:
+       - name: severity
+         data_tests:
+           - accepted_values:
+               values: ['LOW','MEDIUM','HIGH']
+
+  - name: stg_invoices
+    description: "Table des factures"
+    columns:
+      - name: INVOICE_ID
+        tests:
+        - not_null
+      - name: amount_ttc
+        tests:
+        - not_null
+      - name: status
+        data_tests:
+          - accepted_values:
+              values: ['PAID','LATE']
+
+  - name: stg_usage
+    columns:
+      - name: USAGE_ID
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_offer_changes
+    columns:
+      - name: CHANGE_ID
+        tests:
+          - unique
+          - not_null

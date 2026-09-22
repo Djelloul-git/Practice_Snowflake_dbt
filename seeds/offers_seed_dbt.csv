@@ -1,0 +1,6 @@
+offer_code,offer_label,data_limit_gb,monthly_price,segment,is_active
+STARTER_5G,Starter 5G,20,14.99,low,True
+SMART_5G,Smart 5G,60,24.99,mid,True
+POWER_5G,Power 5G,120,34.99,mid,True
+ELITE_5G,Elite 5G,999,44.99,high,True
+PRO_BUSINESS,Pro Business,999,59.99,business,True
